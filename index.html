@@ -38,6 +38,13 @@
             dezembro: ["Vale Natal", "Cartão especial", "Surpresa de Ano Novo"]
         };
 
+        const numeroWhatsApp = '5599999999999';
+
+        function enviarWhatsApp(mensagem) {
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+
         function carregarValesDoMes() {
             const dataAtual = new Date();
             const nomeMes = dataAtual.toLocaleString('pt-BR', { month: 'long' }).toLowerCase();
@@ -67,6 +74,9 @@
                     botao.textContent = 'Usado';
                     botao.disabled = true;
                     clone.querySelector('.vale-card').classList.add('usado');
+
+                    const mensagem = `Estou usando o vale: ${vale}`;
+                    enviarWhatsApp(mensagem);
                 });
 
                 container.appendChild(clone);

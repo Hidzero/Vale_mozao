@@ -49,4 +49,5 @@ button.usar {
 button.usar:disabled {
     background-color: #ccc;
     cursor: default;
+
 }

@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #ff8fa3;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.vale-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vale-card.usado {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+button.usar {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #ff8fa3;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.usar:disabled {
+    background-color: #ccc;
+    cursor: default;
+}

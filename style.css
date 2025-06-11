@@ -1,3 +1,5 @@
+/* style.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,7 +15,7 @@ header {
     padding: 2rem 0;
 }
 
-main {
+main#vales-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -36,8 +38,16 @@ main {
     text-decoration: line-through;
 }
 
+.vale-titulo {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
 button.usar {
-    margin-top: 0.5rem;
+    /* centraliza horizontalmente dentro do card */
+    display: block;
+    margin: 0.5rem auto 0;
     padding: 0.5rem 1rem;
     border: none;
     background-color: #ff8fa3;
@@ -49,5 +59,4 @@ button.usar {
 button.usar:disabled {
     background-color: #ccc;
     cursor: default;
-
 }

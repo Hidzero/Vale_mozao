@@ -13,7 +13,7 @@ const valesPorMes = {
     dezembro: ["Vale Natal", "Cartão especial", "Surpresa de Ano Novo"]
 };
 
-localStorage.clear();
+// localStorage.clear();
 
 
 const numeroWhatsApp = '5521967214778';
@@ -33,28 +33,33 @@ function carregarValesDoMes() {
 
   vales.forEach((vale, index) => {
     const template = document.getElementById('vale-template');
-    const clone = template.content.cloneNode(true);
+    const fragment = template.content.cloneNode(true);
 
-    const titulo = clone.querySelector('.vale-titulo');
+    // pego o card já dentro do fragment
+    const card = fragment.querySelector('.vale-card');
+    const titulo = fragment.querySelector('.vale-titulo');
+    const botao = fragment.querySelector('button.usar');
+
     titulo.textContent = vale;
 
-    const botao = clone.querySelector('button.usar');
     const chave = `${nomeMes}-${index}`;
     if (localStorage.getItem(chave)) {
       botao.textContent = 'Usado';
       botao.disabled = true;
-      clone.querySelector('.vale-card').classList.add('usado');
+      card.classList.add('usado');
     }
 
     botao.addEventListener('click', () => {
       localStorage.setItem(chave, 'true');
       botao.textContent = 'Usado';
       botao.disabled = true;
-      clone.querySelector('.vale-card').classList.add('usado');
+      // aqui uso a referência direta ao elemento card
+      card.classList.add('usado');
       enviarWhatsApp(`Estou usando o vale: ${vale}`);
     });
 
-    container.appendChild(clone);
+    // finalmente insiro o fragment (com o card) no container
+    container.appendChild(fragment);
   });
 }
 
